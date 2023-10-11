@@ -1,0 +1,31 @@
+ext {
+    configurations = [
+            packageName: 'com.example.pokemonkotlindemo',
+            compileVersion: 33,
+            minSdk: 21,
+            targetSdk: 33,
+            jdk_source_ver: JavaVersion.VERSION_1_8,
+            jdk_target_ver: JavaVersion.VERSION_1_8,
+    ]
+
+    dependencies = [
+            appcompat                : 'androidx.appcompat:appcompat:1.4.1',
+            cardview                 : 'androidx.cardview:cardview:1.0.0',
+            constraintlayout         : 'androidx.constraintlayout:constraintlayout:2.1.3',
+            material_design          : 'com.google.android.material:material:1.5.0',
+            swiperecyclerview        : 'com.yanzhenjie.recyclerview:x:1.3.2',
+            baseadapter              : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4',
+
+            rxbinding                : 'com.jakewharton.rxbinding4:rxbinding:4.0.0',
+            rxbinding_appcompat      : 'com.jakewharton.rxbinding4:rxbinding-appcompat:4.0.0',
+            viewmodel_ktx            : 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0',
+            livedata                 : "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0",
+            unpeek_livedata          : 'com.kunminx.arch:unpeek-livedata:7.8.0',
+            //dialog
+            material_dialog          : "com.afollestad.material-dialogs:lifecycle:3.3.0",
+            material_dialog_core     : "com.afollestad.material-dialogs:core:3.3.0",
+            //http
+            retrofit                 : 'com.squareup.retrofit2:retrofit:2.9.0',
+            retrofit_gson            : 'com.squareup.retrofit2:converter-gson:2.9.0'
+    ]
+}

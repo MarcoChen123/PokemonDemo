@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hosts>
+    <debug>
+        <host name="api">https://beta.pokeapi.co/graphql/v1beta/</host>
+    </debug>
+
+    <release>
+        <host name="api">https://beta.pokeapi.co/graphql/v1beta/</host>
+    </release>
+
+</hosts>

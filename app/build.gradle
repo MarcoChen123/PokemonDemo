@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id("com.apollographql.apollo3").version("3.8.2")
+}
+
+android {
+    signingConfigs {
+        release {
+            storeFile file(rootDir.absolutePath + '\\pokemon.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+    }
+    namespace rootProject.ext.configurations.packageName
+    compileSdk rootProject.ext.configurations.compileVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.configurations.packageName
+        minSdk rootProject.ext.configurations.minSdk
+        targetSdk rootProject.ext.configurations.targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation rootProject.ext.dependencies["appcompat"]
+    implementation rootProject.ext.dependencies["swiperecyclerview"]
+    implementation rootProject.ext.dependencies["baseadapter"]
+    implementation rootProject.ext.dependencies["rxbinding"]
+    implementation rootProject.ext.dependencies["rxbinding_appcompat"]
+    implementation rootProject.ext.dependencies["unpeek_livedata"]
+    implementation rootProject.ext.dependencies["viewmodel_ktx"]
+    implementation rootProject.ext.dependencies["cardview"]
+    implementation rootProject.ext.dependencies["material_dialog"]
+    implementation rootProject.ext.dependencies["material_dialog_core"]
+    implementation rootProject.ext.dependencies["constraintlayout"]
+    implementation rootProject.ext.dependencies["material_design"]
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["retrofit_gson"]
+    implementation("com.apollographql.apollo3:apollo-runtime")
+}
+
+apollo {
+    service("service") {
+        packageName.set("com.example.pokmonkotlindemo")
+    }
+}

@@ -1,0 +1,21 @@
+query NameSearch($limit:Int!, $offset:Int!, $where: pokemon_v2_pokemonspecies_bool_exp){
+    pokemon_v2_pokemonspecies(limit: $limit, offset: $offset, where: $where){
+    id
+    name
+    capture_rate
+    pokemon_v2_pokemoncolor{
+        id
+        name
+    }
+    pokemon_v2_pokemons{
+        id
+        name
+        pokemon_v2_pokemonabilities{
+            id
+            pokemon_v2_ability{
+                name
+            }
+        }
+    }
+    }
+}
